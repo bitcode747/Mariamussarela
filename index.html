@@ -7,22 +7,114 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #f5c16c; --wine: #4a0000; --bg: #000000; --gray: #999; }
-        body { background-color: #1a1a1a; font-family: 'Montserrat', sans-serif; margin: 0; padding: 10px; display: flex; justify-content: center; padding-bottom: 140px; }
-        .page { width: 100%; max-width: 210mm; background-color: var(--bg); padding: 5%; box-sizing: border-box; color: #fff; border: 4px solid var(--wine); box-shadow: 0 0 40px rgba(0,0,0,1); }
+        
+        body { 
+            background-color: #1a1a1a; 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            padding: 10px; 
+            display: flex; 
+            justify-content: center; 
+        }
+        
+        .page { 
+            width: 100%;
+            max-width: 210mm; 
+            background-color: var(--bg); 
+            padding: 5%; 
+            box-sizing: border-box; 
+            color: #fff; 
+            border: 4px solid var(--wine); 
+            box-shadow: 0 0 40px rgba(0,0,0,1);
+        }
+
         header { text-align: center; border-bottom: 2px solid var(--gold); padding-bottom: 20px; margin-bottom: 30px; }
         h1 { font-family: 'Cinzel', serif; color: var(--gold); font-size: clamp(24px, 8vw, 38px); margin: 0; }
-        h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18px; text-transform: uppercase; background: rgba(74, 0, 0, 0.5); padding: 8px 15px; margin: 25px 0 15px 0; border-left: 5px solid var(--gold); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px 30px; }
+        
+        h2 { 
+            font-family: 'Cinzel', serif; 
+            color: var(--gold); 
+            font-size: 18px; 
+            text-transform: uppercase; 
+            background: rgba(74, 0, 0, 0.5); 
+            padding: 8px 15px; 
+            margin: 25px 0 15px 0; 
+            border-left: 5px solid var(--gold);
+        }
+
+        /* Ajuste de Grid Responsivo */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px 30px; 
+        }
+        
         .item { margin-bottom: 10px; border-bottom: 1px solid #222; padding-bottom: 8px; }
-        .item-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; color: #fff; flex-wrap: wrap; gap: 5px; }
+        .item-header { 
+            display: flex; 
+            justify-content: space-between; 
+            font-weight: 700; 
+            font-size: 14px; 
+            color: #fff; 
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
         .desc { font-size: 11px; color: var(--gray); font-style: italic; margin-top: 3px; line-height: 1.3; }
-        .price-tag { color: var(--gold); font-size: 12px; }
-        .controls { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
-        .qty-input { background: #222; border: 1px solid var(--gold); color: white; width: 45px; padding: 5px; text-align: center; border-radius: 4px; }
-        .size-select { background: #222; border: 1px solid #444; color: white; font-size: 12px; border-radius: 4px; padding: 4px; }
-        .order-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: #111; padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; border-top: 3px solid var(--gold); z-index: 1000; }
-        .mesa-input { padding: 12px; border-radius: 5px; border: 1px solid var(--gold); background: #000; color: #fff; font-size: 16px; text-align: center; }
-        .btn-send { background: #25d366; color: white; border: none; padding: 15px; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .price-tag { color: var(--gold); font-size: 12px; white-space: nowrap; }
+
+        .list-simple { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 10px; 
+            color: #fff; 
+            font-size: 13px; 
+        }
+        
+        .esfiha-item { 
+            background: #1a1a1a; 
+            padding: 10px; 
+            border-radius: 5px; 
+            border: 1px solid #333; 
+            display: flex; 
+            justify-content: space-between; 
+        }
+        
+        .esfiha-name { color: var(--gold); font-weight: bold; }
+
+        .bebidas-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .footer { 
+            text-align: center; 
+            margin-top: 40px; 
+            padding: 20px; 
+            border-top: 2px solid var(--gold); 
+            background: linear-gradient(0deg, #1a0000, transparent); 
+        }
+        
+        .whatsapp { 
+            background: #25d366; 
+            color: white; 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            display: inline-block; 
+            font-size: 18px; 
+            text-decoration: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Ajustes para telas muito pequenas */
+        @media (max-width: 480px) {
+            .page { padding: 15px; border-width: 2px; }
+            h2 { font-size: 16px; }
+            .item-header { font-size: 13px; }
+        }
     </style>
 </head>
 <body>
@@ -30,306 +122,93 @@
 <div class="page">
     <header>
         <h1>🍕 Maria Muçarela</h1>
-        <p style="letter-spacing: 2px; color: var(--gold); margin-top: 10px; font-size: 12px;">CARDÁPIO DIGITAL INTERATIVO</p>
+        <p style="letter-spacing: 2px; color: var(--gold); margin-top: 10px; font-size: 12px;">EXPERIÊNCIA GASTRONÔMICA PREMIUM</p>
     </header>
 
     <h2>Pizzas Clássicas</h2>
     <div class="grid">
-        <div class="item" data-name="M. Baina">
-            <div class="item-header">M. BAINA <span class="price-tag">G: R$ 34,99</span></div>
-            <div class="desc">Calabresa moída, ovos, pimenta, cebola e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="G (34,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Calabresa">
-            <div class="item-header">M. CALABRESA <span class="price-tag">G: R$ 34,99</span></div>
-            <div class="desc">Calabresa e cebola.</div>
-            <div class="controls"><select class="size-select"><option value="G (34,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Emilia">
-            <div class="item-header">M. EMILIA <span class="price-tag">G: R$ 34,99</span></div>
-            <div class="desc">Milho, mussarela e tomate.</div>
-            <div class="controls"><select class="size-select"><option value="G (34,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Marguerita">
-            <div class="item-header">M. MARGUERITA <span class="price-tag">P: 34,99 | M: 39,99 | G: 44,99</span></div>
-            <div class="desc">Mussarela, manjericão fresco, tomate e parmesão.</div>
-            <div class="controls"><select class="size-select"><option value="P (34,99)">P</option><option value="M (39,99)">M</option><option value="G (44,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Moçarella">
-            <div class="item-header">M. MOÇARELLA <span class="price-tag">P: 34,99 | M: 39,99 | G: 44,99</span></div>
-            <div class="desc">Mussarela e tomate.</div>
-            <div class="controls"><select class="size-select"><option value="P (34,99)">P</option><option value="M (39,99)">M</option><option value="G (44,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Bauru">
-            <div class="item-header">M. BAURU <span class="price-tag">P: 34,99 | M: 39,99 | G: 44,99</span></div>
-            <div class="desc">Presunto, mussarela e tomate.</div>
-            <div class="controls"><select class="size-select"><option value="P (34,99)">P</option><option value="M (39,99)">M</option><option value="G (44,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-    </div>
-
-    <h2>Pizzas Supremas</h2>
-    <div class="grid">
-        <div class="item" data-name="M. Bonita">
-            <div class="item-header">M. BONITA <span class="price-tag">G: R$ 49,99</span></div>
-            <div class="desc">Carne seca, cebola roxa, mussarela, requeijão e pimenta biquinho.</div>
-            <div class="controls"><select class="size-select"><option value="G (49,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Camarão">
-            <div class="item-header">M. CAMARÃO <span class="price-tag">G: R$ 49,99</span></div>
-            <div class="desc">Camarão, catupiry, mussarela e tomate.</div>
-            <div class="controls"><select class="size-select"><option value="G (49,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
+        <div class="item"><div class="item-header">M. BAIANA <span class="price-tag">G: R$ 34,99</span></div><div class="desc">Calabresa moída, ovos, pimenta, cebola e muçarela.</div></div>
+        <div class="item"><div class="item-header">M. CALABRESA <span class="price-tag">G: R$ 34,99</span></div><div class="desc">Calabresa e cebola.</div></div>
+        <div class="item"><div class="item-header">M. EMILIA <span class="price-tag">G: R$ 34,99</span></div><div class="desc">Milho, muçarela e tomate.</div></div>
+        <div class="item"><div class="item-header">M. MARGHERITA <span class="price-tag">P:34,99 M:39,99 G:44,99</span></div><div class="desc">Muçarela, manjericão fresco, tomate e queijo parmesão.</div></div>
+        <div class="item"><div class="item-header">M. MOÇARELA <span class="price-tag">P:34,99 M:39,99 G:44,99</span></div><div class="desc">Moçarela e tomate.</div></div>
+        <div class="item"><div class="item-header">M. BAURU <span class="price-tag">P:34,99 M:39,99 G:44,99</span></div><div class="desc">Presunto, moçarela e tomate.</div></div>
     </div>
 
     <h2>Pizzas Premium</h2>
     <div class="grid">
-        <div class="item" data-name="Dona Maria">
-            <div class="item-header">DONA MARIA <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Requeijão, calabresa, pimenta, tomate, cebola e parmesão.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Mãe Maria">
-            <div class="item-header">MÃE MARIA <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Lombo, requeijão, mussarela, tomate, bakon e parmesão.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Americana">
-            <div class="item-header">M. AMERICANA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Presunto, alface americano, requeijão e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Peruana">
-            <div class="item-header">M. PERUANA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Atum, cebola e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Antônia">
-            <div class="item-header">M. ANTÔNIA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Atum sólido, alho frito, mussarela e cebola.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Dos brócolis">
-            <div class="item-header">M. DOS BRÓCOLIS <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Brócolis, alho frito, mussarela e pimenta biquinho.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Caipirona">
-            <div class="item-header">M. CAIPIRONA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Frango, cheddar e bakon.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Caipira">
-            <div class="item-header">M. CAIPIRA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Frango, milho, mussarela e bakon.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. De Vênus">
-            <div class="item-header">M. DE VÊNUS <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Presunto, calabresa, requeijão, tomate e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Dos queijos">
-            <div class="item-header">M. DOS QUEIJOS <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Requeijão, mussarela, provolone e parmesão.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Francesa">
-            <div class="item-header">M. FRANCESA <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Lombo, mussarela e bakon.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Namoradeira">
-            <div class="item-header">M. NAMORADEIRA <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Palmito, requeijão e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Portugal">
-            <div class="item-header">M. PORTUGAL <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Presunto, ovos, cebola e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Portuguêsa">
-            <div class="item-header">M. PORTUGUÊSA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Presunto, ovos, ervilha, palmito, cebola, mussarela e bakon.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Vegetariana">
-            <div class="item-header">M. VEGETARIANA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Palmito, milho, ervilha, tomate e mussarela.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Tubaina">
-            <div class="item-header">M. TUBAINA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Calabresa moída, requeijão e cebola.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Catufrango">
-            <div class="item-header">M. CATUFRANGO <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Frango, catupiry original.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
+        <div class="item"><div class="item-header">DONA MARIA <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Requeijão, calabresa, pimenta, tomate, cebola e parmesão.</div></div>
+        <div class="item"><div class="item-header">MÃE MARIA <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Lombo, requeijão, muçarela, tomate, bacon e parmesão.</div></div>
+        <div class="item"><div class="item-header">M. AMERICANA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Presunto, alface americano, requeijão e muçarela.</div></div>
+        <div class="item"><div class="item-header">M. PERUANA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Atum, cebola e moçarela.</div></div>
+        <div class="item"><div class="item-header">M. ANTONIA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Atum sólido, alho frito, moçarela e cebola.</div></div>
+        <div class="item"><div class="item-header">M. DOS BRÓCOLIS <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Brócolis, alho frito, moçarela e pimenta biquinho.</div></div>
+        <div class="item"><div class="item-header">M. CAIPIRONA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Frango, cheddar e bacon.</div></div>
+        <div class="item"><div class="item-header">M. CAIPIRA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Frango, milho, muçarela e bacon.</div></div>
+        <div class="item"><div class="item-header">M. DE VÊNUS <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Presunto, calabresa, requeijão, tomate e moçarela.</div></div>
+        <div class="item"><div class="item-header">M. DOS QUEIJOS <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Requeijão, moçarela, provolone e parmesão.</div></div>
+        <div class="item"><div class="item-header">M. FRANCESA <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Lombo, muçarela e bacon.</div></div>
+        <div class="item"><div class="item-header">M. NAMORADEIRA <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Palmito, requeijão e muçarela.</div></div>
+        <div class="item"><div class="item-header">M. PORTUGAL <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Presunto, ovos, cebola e muçarela.</div></div>
+        <div class="item"><div class="item-header">M. PORTUGUESA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Presunto, ovos, ervilha, palmito, cebola, muçarela e bacon.</div></div>
+        <div class="item"><div class="item-header">M. VEGETARIANA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Palmito, milho, ervilha, tomate e muçarela.</div></div>
+        <div class="item"><div class="item-header">M. TUBAÍNA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Calabresa moída, requeijão e cebola.</div></div>
+        <div class="item"><div class="item-header">M. CATU FRANGO <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Frango e catupiry original.</div></div>
+    </div>
+
+    <h2>Pizzas Supremas</h2>
+    <div class="grid">
+        <div class="item"><div class="item-header">M. BONITA <span class="price-tag">G: R$ 49,99</span></div><div class="desc">Carne seca, cebola roxa, moçarela, requeijão e pimenta biquinho.</div></div>
+        <div class="item"><div class="item-header">M. DO CAMARÃO <span class="price-tag">G: R$ 49,99</span></div><div class="desc">Camarão, catupiry, moçarela e tomate.</div></div>
     </div>
 
     <h2>Pizzas Doces</h2>
     <div class="grid">
-        <div class="item" data-name="Nutella">
-            <div class="item-header">NUTELLA <span class="price-tag">P: 39,99 | M: 44,99 | G: 49,99</span></div>
-            <div class="desc">Nutella com morango.</div>
-            <div class="controls"><select class="size-select"><option value="P (39,99)">P</option><option value="M (44,99)">M</option><option value="G (49,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Blanca">
-            <div class="item-header">BLANCA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Banana, chocolate branco e canela.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Italia">
-            <div class="item-header">ITALIA <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Chocolate, uva verde e leite em pó.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Tropical">
-            <div class="item-header">TROPICAL <span class="price-tag">P: 33,99 | M: 38,99 | G: 43,99</span></div>
-            <div class="desc">Abacaxi, chocolate branco.</div>
-            <div class="controls"><select class="size-select"><option value="P (33,99)">P</option><option value="M (38,99)">M</option><option value="G (43,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M&Ms">
-            <div class="item-header">M&MS <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Chocolate e M&ms.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Oreo">
-            <div class="item-header">M. OREO <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Chocolate branco e óreo.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Brigadeiro">
-            <div class="item-header">M. BRIGADEIRO <span class="price-tag">P: 32,99 | M: 37,99 | G: 42,99</span></div>
-            <div class="desc">Chocolate e granulado.</div>
-            <div class="controls"><select class="size-select"><option value="P (32,99)">P</option><option value="M (37,99)">M</option><option value="G (42,99)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
+        <div class="item"><div class="item-header">NUTELA <span class="price-tag">P:39,99 M:44,99 G:49,99</span></div><div class="desc">Nutela com morango.</div></div>
+        <div class="item"><div class="item-header">BLANCA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Banana, chocolate branco e canela.</div></div>
+        <div class="item"><div class="item-header">ITÁLIA <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Chocolate, uva verde e leite em pó.</div></div>
+        <div class="item"><div class="item-header">TROPICAL <span class="price-tag">P:33,99 M:38,99 G:43,99</span></div><div class="desc">Abacaxi e chocolate branco.</div></div>
+        <div class="item"><div class="item-header">M&MS <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Chocolate e m&ms.</div></div>
+        <div class="item"><div class="item-header">M. OREO <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Chocolate branco e oreo.</div></div>
+        <div class="item"><div class="item-header">M. BRIGADEIRO <span class="price-tag">P:32,99 M:37,99 G:42,99</span></div><div class="desc">Chocolate e granulado.</div></div>
     </div>
 
     <h2>Big Esfihas</h2>
-    <div class="grid">
-        <div class="item" data-name="Esfiha Calabresa">
-            <div class="item-header">CALABRESA <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Calabresa moída.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Queijo">
-            <div class="item-header">QUEIJO <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Mussarela.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Carne">
-            <div class="item-header">CARNE <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Carne temperada.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Pizza">
-            <div class="item-header">PIZZA <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Mussarela, tomate e azeitona.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Toscana">
-            <div class="item-header">TOSCANA <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Calabresa com mussarela.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Frango">
-            <div class="item-header">FRANGO <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Frango e mussarela.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Atum">
-            <div class="item-header">ATUM <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Atum com mussarela.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Esfiha Carne Seca">
-            <div class="item-header">CARNE SECA <span class="price-tag">R$ 14,99</span></div>
-            <div class="desc">Carne seca, mussarela, pimenta biquinho.</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
+    <div class="list-simple">
+        <div class="esfiha-item"><span class="esfiha-name">CALABRESA</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">QUEIJO</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">CARNE</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">PIZZA</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">TOSCANA</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">FRANGO</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">ATUM</span> <span>R$ 14,99</span></div>
+        <div class="esfiha-item"><span class="esfiha-name">CARNE SECA</span> <span>R$ 14,99</span></div>
     </div>
 
     <h2>Porções</h2>
     <div class="grid">
-        <div class="item" data-name="Batata Frita">
-            <div class="item-header">BATATA FRITA <span class="price-tag">P: 20,00 | G: 40,00</span></div>
-            <div class="desc">Mandioca frita, com cheddar e Bacon.</div>
-            <div class="controls"><select class="size-select"><option value="P (20,00)">P</option><option value="G (40,00)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
+        <div class="item"><div class="item-header">BATATA FRITA <span class="price-tag">P: 20,00 | G: 40,00</span></div><div class="desc">Batata frita com cheddar e bacon.</div></div>
+        <div class="item"><div class="item-header">MANDIOCA FRITA <span class="price-tag">P: 20,00 | G: 40,00</span></div><div class="desc">Mandioca frita com calabresa e milho.</div></div>
+        <div class="item"><div class="item-header">FRANGO A PASSARINHA <span class="price-tag">P: 20,00 | G: 40,00</span></div><div class="desc">Frango, batata e molho maria.</div></div>
+        <div class="item"><div class="item-header">M. BOTECO <span class="price-tag">P: 30,00 | G: 50,00</span></div><div class="desc">Frango, batata, mandioca, calabresa, bacon e molho.</div></div>
+    </div>
+
+    <div class="bebidas-container">
+        <div>
+            <h2>Bebidas <span class="price-tag" style="color:#fff">R$ 6,00</span></h2>
+            <div class="desc" style="color:#fff; font-style: normal;">Coca-Cola / Guaraná Antártica / Suco Natural / Água</div>
         </div>
-        <div class="item" data-name="Mandioca Frita">
-            <div class="item-header">MANDIOCA FRITA <span class="price-tag">P: 20,00 | G: 40,00</span></div>
-            <div class="desc">Mandioca frita, com calabresa e molho.</div>
-            <div class="controls"><select class="size-select"><option value="P (20,00)">P</option><option value="G (40,00)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Frango a passarinha">
-            <div class="item-header">FRANGO A PASSARINHA <span class="price-tag">P: 20,00 | G: 40,00</span></div>
-            <div class="desc">Batata frita, frango a passarinha e molho maria.</div>
-            <div class="controls"><select class="size-select"><option value="P (20,00)">P</option><option value="G (40,00)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="M. Boteco">
-            <div class="item-header">M. BOTECO <span class="price-tag">P: 30,00 | G: 50,00</span></div>
-            <div class="desc">Frango a passarinha, batata frita, mandioca frita, calabresa Bacon e molho Maria.</div>
-            <div class="controls"><select class="size-select"><option value="P (30,00)">P</option><option value="G (50,00)">G</option></select><input type="number" class="qty-input" value="0" min="0"></div>
+        <div>
+            <h2>🍺 Cervejas <span class="price-tag" style="color:#fff">R$ 6,00</span></h2>
+            <div class="desc" style="color:#fff; font-style: normal;">Heineken / Skol / Brahma / Budweiser / Corona</div>
         </div>
     </div>
 
-    <h2>Bebidas</h2>
-    <div class="grid">
-        <div class="item" data-name="Refrigerante">
-            <div class="item-header">REFRIGERANTE</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Coca-Cola">
-            <div class="item-header">COCA-COLA</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Guaraná Antártica">
-            <div class="item-header">GUARANÁ ANTÁRTICA</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Suco Natural">
-            <div class="item-header">SUCO NATURAL</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
-        <div class="item" data-name="Água">
-            <div class="item-header">ÁGUA</div>
-            <div class="controls"><input type="number" class="qty-input" value="0" min="0"></div>
-        </div>
+    <div class="footer">
+        <a href="https://wa.me/5589981262029" class="whatsapp">PEDIDOS: (89) 98126-2029</a>
+        <p style="margin-top: 15px; font-size: 11px; color: var(--gray);">Maria Moçarella - Agradecemos a preferência!</p>
     </div>
 </div>
-
-<div class="order-bar">
-    <input type="number" id="mesa" class="mesa-input" placeholder="DIGITE O NÚMERO DA MESA">
-    <button onclick="enviarPedido()" class="btn-send">ENVIAR PEDIDO PARA O WHATSAPP</button>
-</div>
-
-<script>
-    function enviarPedido() {
-        const mesa = document.getElementById('mesa').value;
-        if (!mesa) { alert("Por favor, informe sua MESA!"); return; }
-
-        let itens = "";
-        document.querySelectorAll('.item').forEach(item => {
-            const qty = item.querySelector('.qty-input').value;
-            if (qty > 0) {
-                const nome = item.getAttribute('data-name');
-                const sel = item.querySelector('.size-select');
-                const tamanho = sel ? ` [${sel.value}]` : "";
-                itens += `• ${qty}x ${nome}${tamanho}\n`;
-            }
-        });
-
-        if (!itens) { alert("Selecione pelo menos um item!"); return; }
-
-        const mensagem = `*NOVO PEDIDO - MARIA MUÇARELA*\n\n📍 *MESA:* ${mesa}\n\n*ITENS:*\n${itens}\n_Pedido enviado pelo cardápio digital._`;
-        const link = `https://wa.me/5589981262029?text=${encodeURIComponent(mensagem)}`;
-        window.open(link, '_blank');
-    }
-</script>
 
 </body>
 </html>
